@@ -111,7 +111,10 @@ inline Atomic32 NoBarrier_AtomicIncrement(volatile Atomic32* ptr,
 }
 
 inline void MemoryBarrier() {
-  __asm__ __volatile__("dmb" : : : "memory");
+  int a = 0, b = 0;
+  __asm__ __volatile__ ("swp %0, %1, [%2]"
+      : "=&r"(a) : "r"(1), "r"(&b) : "memory", "cc");
+  //__asm__ __volatile__("dmb" : : : "memory");
 }
 
 inline Atomic32 Barrier_AtomicIncrement(volatile Atomic32* ptr,

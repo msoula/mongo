@@ -80,7 +80,7 @@ void CPU::DebugBreak() {
   // __asm { int 3 }
   __debugbreak();
 #else
-  asm("int $3");
+  //asm("int $3");
 #endif
 }
 

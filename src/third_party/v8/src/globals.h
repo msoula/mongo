@@ -110,7 +110,7 @@ namespace internal {
 
 // Check for supported combinations of host and target architectures.
 #if defined(V8_TARGET_ARCH_IA32) && !defined(V8_HOST_ARCH_IA32)
-#error Target architecture ia32 is only supported on ia32 host
+//#error Target architecture ia32 is only supported on ia32 host
 #endif
 #if defined(V8_TARGET_ARCH_X64) && !defined(V8_HOST_ARCH_X64)
 #error Target architecture x64 is only supported on x64 host
